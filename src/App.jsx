@@ -1,33 +1,51 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import SearchBar from'./Components/SearchBar';
+import SearchResults from'./Components/SearchResults';
+import Playlist from'./Components/Playlist';
+
+const TrackData = [{
+  artist: 'DocumentOne',
+  song: '7th dimension',
+  album: '7th dimension'
+},
+{
+  artist: 'Gorillaz',
+  song: 'Feels Good inc.',
+  album: 'Demon Dayz'
+},
+{
+  artist: 'Flowidus',
+  song: 'Shelter',
+  album: 'Shelter'
+},
+{
+  artist: 'Ownglow',
+  song: 'do U?',
+  album: 'single'
+},
+]
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [selectedTracks, SetSelectedTracks] = useState([{artist: 'song',
+    song: 'artist',
+    album: 'album'}]);
+  const [search, SetSearch] = useState([]);
+
+  const handleAddTrack = (track) => {
+    SetSelectedTracks(prev => [
+      ...prev, track]);
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <SearchBar/>
+      <div className='container'>
+        <SearchResults searchData={TrackData} addTrack={handleAddTrack}/>
+        <Playlist tracks={selectedTracks}/>
+        {/* <button onClick={handleAddTrack}>test</button>
+        <p>{JSON.stringify(selectedTracks)}</p> */}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
