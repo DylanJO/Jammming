@@ -1,13 +1,17 @@
 import { useState } from 'react'
 
-function Track({ song, artist, album, addTrack}) {
+function Track({ song, artist, album, event, listId }) {
 
   const handleAddtrack = () => {
-    addTrack({
+    event({
       artist: artist,
       song: song,
       album: album
     })
+  }
+
+  const handleRemoveTrack = () => {
+    event(listId)
   }
 
   return (
@@ -15,7 +19,8 @@ function Track({ song, artist, album, addTrack}) {
       <h3>{song}</h3>
       <p>{artist}</p>
       <p>{album}</p>
-      <button onClick={handleAddtrack}>+</button>
+      {event.name === 'handleAddTrack' ? <button onClick={handleAddtrack}>+</button> :
+      <button onClick={handleRemoveTrack}>-</button>}
     </div>
   )
 }

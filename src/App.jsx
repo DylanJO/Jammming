@@ -27,24 +27,29 @@ const TrackData = [{
 ]
 
 function App() {
-  const [selectedTracks, SetSelectedTracks] = useState([{artist: 'song',
-    song: 'artist',
-    album: 'album'}]);
-  const [search, SetSearch] = useState([]);
+  const [selectedTracks, SetSelectedTracks] = useState([]);
+  const [search, SetSearch] = useState('');
+
+  const handleSearch = (searchValue) => {
+    console.log(searchValue)
+  }
 
   const handleAddTrack = (track) => {
     SetSelectedTracks(prev => [
       ...prev, track]);
   }
 
+  const handleRemoveTrack = (listId) => {
+    SetSelectedTracks(prev => 
+      prev.filter((track, index) => index !== listId));
+  }
+
   return (
     <>
-      <SearchBar/>
+      <SearchBar searchEvent={handleSearch}/>
       <div className='container'>
         <SearchResults searchData={TrackData} addTrack={handleAddTrack}/>
-        <Playlist tracks={selectedTracks}/>
-        {/* <button onClick={handleAddTrack}>test</button>
-        <p>{JSON.stringify(selectedTracks)}</p> */}
+        <Playlist tracks={selectedTracks} removeTrack={handleRemoveTrack}/>
       </div>
     </>
   )

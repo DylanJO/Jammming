@@ -5,7 +5,7 @@ function SearchResults({ searchData, addTrack}) {
 
   return (
     <div>
-    <Tracklist tracks={searchData} addTrack={addTrack}/>
+    <Tracklist tracks={searchData} event={addTrack}/>
     </div>
   )
 }

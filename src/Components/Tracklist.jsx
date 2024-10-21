@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import Track from'./Track';
 
-function Tracklist({ tracks, addTrack }) {
+function Tracklist({ tracks, event }) {
 
   return (
     <>
     {tracks.map((track, i) => {
-      return <Track key={i} song={track.song} artist={track.artist} album={track.album} addTrack={addTrack}/>
+      return <Track key={track.song+i} song={track.song} artist={track.artist} album={track.album} event={event} listId={i}/>
     })}
     </>
   )

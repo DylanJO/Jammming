@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
-function SearchBar() {
+function SearchBar({ searchEvent }) {
 
     const submitHandler = (e) => {
         e.preventDefault();
+        searchEvent(e.target.search.value)
     }
 
   return (

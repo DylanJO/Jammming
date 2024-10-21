@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import Tracklist from'./Tracklist';
 
-function Playlist({ tracks }) {
+function Playlist({ tracks, removeTrack }) {
 
   return (
     <div>
-      <Tracklist tracks={tracks}/>
+      <Tracklist tracks={tracks} event={removeTrack}/>
       <button>Save to Spotify</button>
     </div>
   )
