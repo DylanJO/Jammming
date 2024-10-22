@@ -26,12 +26,17 @@ const TrackData = [{
 },
 ]
 
+// todo:
+// no duplicate songs can be added
+// export playlist function removes all tracks plus creates array of track URI's
+
 function App() {
   const [selectedTracks, SetSelectedTracks] = useState([]);
   const [search, SetSearch] = useState('');
 
   const handleSearch = (searchValue) => {
     console.log(searchValue)
+    SetSearch(searchValue)
   }
 
   const handleAddTrack = (track) => {

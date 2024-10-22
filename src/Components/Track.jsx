@@ -17,10 +17,11 @@ function Track({ song, artist, album, event, listId }) {
   return (
     <div className='track'>
       <h3>{song}</h3>
-      <p>{artist}</p>
-      <p>{album}</p>
-      {event.name === 'handleAddTrack' ? <button onClick={handleAddtrack}>+</button> :
-      <button onClick={handleRemoveTrack}>-</button>}
+      <div>
+        <p>{artist} | {album}</p>
+        {event.name === 'handleAddTrack' ? <button onClick={handleAddtrack}>+</button> :
+        <button onClick={handleRemoveTrack}>-</button>}
+      </div>
     </div>
   )
 }

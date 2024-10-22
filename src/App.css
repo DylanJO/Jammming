@@ -1,14 +1,71 @@
+body {
+    background-color: #1a1a1a;
+}
+
+h2 {
+    margin: 0;
+    padding: 5px;
+}
+
 .container{
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     justify-content: center;
     padding: 10px;
+    color: #3EFF8B;
+}
+
+.listContainer {
+    padding: 10px;
+    min-width: 30rem;
 }
 
 .track {
-    border: 1px solid #213547;
+    border: 0.5px solid #386C0B;
     border-radius: 5px;
     margin: 5px 0px;
-    padding: 5px;
+    padding: 10px 20px;
+    min-width: 20rem;
+    background-color: #222222;
   }
   
+.track div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.track p {
+    color: #75B9BE;
+}
+
+input {
+    background-color: #1a1a1a;
+    border: none;
+    color: #3EFF8B;
+    padding: 5px;
+    font-size: 1.5em;
+}
+
+input:focus {
+    outline: none;
+  }
+
+input::placeholder {
+    color: #D6C9C9;
+    opacity: 1; /* Firefox */
+}
+
+input[type=submit], button {
+    background-color: #3EFF8B;
+    color: #1a1a1a;
+    font-size: 1em;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover, input[type=submit]:hover {
+    background-color: #75B9BE;
+}
+/* #75B9BE */

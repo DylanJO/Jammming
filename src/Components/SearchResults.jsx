@@ -4,8 +4,9 @@ import Tracklist from'./Tracklist';
 function SearchResults({ searchData, addTrack}) {
 
   return (
-    <div>
-    <Tracklist tracks={searchData} event={addTrack}/>
+    <div className='listContainer'>
+      <h2>Results</h2>
+      <Tracklist tracks={searchData} event={addTrack}/>
     </div>
   )
 }
