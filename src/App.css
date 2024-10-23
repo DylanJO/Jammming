@@ -1,10 +1,27 @@
+:root {
+    --dark-grey: #1a1a1a;
+    --grey: #222222;
+    --light-grey: #D6C9C9;
+    --dark-green: #386C0B;
+    --bright-green: #3EFF8B;
+    --blue: #75B9BE;
+}
+
+@font-face {
+    font-family: 'Electrolize', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Electrolize&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+}
+
 body {
-    background-color: #1a1a1a;
+    background-color: var(--dark-grey);
+    font-family: 'Electrolize';
 }
 
 h2 {
     margin: 0;
     padding: 5px;
+    font-family: 'Electrolize';
+    text-transform: uppercase;
 }
 
 .container{
@@ -12,7 +29,7 @@ h2 {
     /* width: 100%; */
     justify-content: center;
     padding: 10px;
-    color: #3EFF8B;
+    color: var(--bright-green);
 }
 
 .listContainer {
@@ -21,13 +38,35 @@ h2 {
 }
 
 .track {
-    border: 0.5px solid #386C0B;
+    border: 0.5px solid var(--dark-green);
     border-radius: 5px;
     margin: 5px 0px;
     padding: 10px 20px;
     min-width: 20rem;
-    background-color: #222222;
-  }
+    background-color: var(--grey);
+    overflow: hidden;
+    opacity: 1;
+    height: 8rem;
+    transition: opacity 1s ease, height 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+}
+
+/* .fadeIn {
+    animation: fade-in 0.8s ease;
+} */
+
+/* @keyframes fade-in {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+} */
+
+.fadeOut {
+    animation: fade-out 0.5s ease;
+}
+
+@keyframes fade-out {
+    0% { opacity: 1 }
+    100% { opacity: 0 }
+}
   
 .track div {
     display: flex;
@@ -35,15 +74,21 @@ h2 {
 }
 
 .track p {
-    color: #75B9BE;
+    color: var(--blue);
+    font-family: sans-serif;
 }
 
 input {
-    background-color: #1a1a1a;
+    background-color: var(--dark-grey);
     border: none;
-    color: #3EFF8B;
+    color: var(--bright-green);
     padding: 5px;
     font-size: 1.5em;
+}
+
+input[type=text] {
+    font-family: 'Electrolize';
+    text-transform: uppercase;
 }
 
 input:focus {
@@ -51,21 +96,21 @@ input:focus {
   }
 
 input::placeholder {
-    color: #D6C9C9;
+    color: var(--light-grey);
     opacity: 1; /* Firefox */
 }
 
 input[type=submit], button {
-    background-color: #3EFF8B;
-    color: #1a1a1a;
+    background-color: var(--bright-green);
+    color: var(--dark-grey);
     font-size: 1em;
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
     border: none;
+    transition: background-color 0.2s linear;
 }
 
 button:hover, input[type=submit]:hover {
-    background-color: #75B9BE;
+    background-color: var(--blue);
 }
-/* #75B9BE */

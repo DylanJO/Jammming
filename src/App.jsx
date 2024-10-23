@@ -27,8 +27,6 @@ const TrackData = [{
 ]
 
 // todo:
-// no duplicate songs can be added
-// export playlist function removes all tracks plus creates array of track URI's
 
 function App() {
   const [selectedTracks, SetSelectedTracks] = useState([]);
@@ -40,8 +38,16 @@ function App() {
   }
 
   const handleAddTrack = (track) => {
-    SetSelectedTracks(prev => [
-      ...prev, track]);
+    let isNewTrack = true;
+    for (let i = 0; i < selectedTracks.length; i++) {
+      if (selectedTracks[i].song === track.song && selectedTracks[i].artist === track.artist) {
+        isNewTrack = false
+      }
+    }
+    if (isNewTrack) {
+      SetSelectedTracks(prev => [
+        ...prev, track]);
+    }
   }
 
   const handleRemoveTrack = (listId) => {
@@ -49,12 +55,16 @@ function App() {
       prev.filter((track, index) => index !== listId));
   }
 
+  const handleSavePlaylist = () => {
+    SetSelectedTracks([]);
+  }
+
   return (
     <>
       <SearchBar searchEvent={handleSearch}/>
       <div className='container'>
         <SearchResults searchData={TrackData} addTrack={handleAddTrack}/>
-        <Playlist tracks={selectedTracks} removeTrack={handleRemoveTrack}/>
+        <Playlist tracks={selectedTracks} removeTrack={handleRemoveTrack} savePlaylist={handleSavePlaylist}/>
       </div>
     </>
   )

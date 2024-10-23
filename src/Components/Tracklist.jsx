@@ -6,7 +6,7 @@ function Tracklist({ tracks, event }) {
   return (
     <>
     {tracks.map((track, i) => {
-      return <Track key={track.song+i} song={track.song} artist={track.artist} album={track.album} event={event} listId={i}/>
+      return <Track key={track.song+track.artist} song={track.song} artist={track.artist} album={track.album} event={event} listId={i}/>
     })}
     </>
   )

@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import Tracklist from'./Tracklist';
 
-function Playlist({ tracks, removeTrack }) {
+function Playlist({ tracks, removeTrack, savePlaylist }) {
   const [playlistName, setPlaylistName] = useState('')
 
   const handleChange = (e) => {
     const name = e.target.value;
     setPlaylistName(name);
-    console.log(playlistName);
   };
 
   const test = () => {
     console.log(playlistName);
+    savePlaylist()
   }
 
   return (
